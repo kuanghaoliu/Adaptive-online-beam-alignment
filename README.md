@@ -3,7 +3,8 @@
 3. The folder is free for academic use, including dataset utilization, simulation result reproduction, model improvement, etc.
 4. For academic use, the related work may be published in:
 Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile Millimeter Channel Based on Continuous-Time Prediction", IEEE WCNC 2024.
-5. The following are the steps for generating training data by using the folder "data":
+5. You can find more information about me on my laboratory website : https://irat.ee.nthu.edu.tw/#Professor
+6. The following are the steps for generating training data by using the folder "data":
    1. Download DeepMIMO functions and the data files of Raytracing scenarios O1 in 28 GHz operating frequency from the DeepMIMO website : https://www.deepmimo.net/
    2. parameters : set the DeepMIMO simulation parmeters.
    3. DeepMIMO_Dataset_Generator :  generate the millimeter wavew channel.
