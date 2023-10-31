@@ -12,12 +12,12 @@ Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile
    6. generator_ODE_beam_tracking_v2 : generate User trajectory with random \tau in each preciction periodic, predction duration is 1-secind.
    7. generator_ODE_beam_tracking_final : generate User trajectory with \tau = {0.01, 0.02, ..., 0.99}, predction duration is 4-secinds.
 7. The "beam_tracking_1s" folder contains three folders with different numbers of CNN layers, and each folder is compatible with strategies 1 through 3. The following provides the purpose of each file.
-   model_ODE_few : neural network architecture and parameter tuning.
-   train_dataloader_3D : load training data and batch output
-   eval_dataloader_3D : load validation data and batch output 
-   test_dataloader_3D : load testing data and batch output
-   train_ODE_few : the main program for training the prediction model.
-   test_ODE_few : the program for testing the prediction model.
+   1. model_ODE_few : neural network architecture and parameter tuning.
+   2. train_dataloader_3D : load training data and batch output
+   3. eval_dataloader_3D : load validation data and batch output 
+   4. test_dataloader_3D : load testing data and batch output
+   5. train_ODE_few : the main program for training the prediction model.
+   6. test_ODE_few : the program for testing the prediction model.
 9.  The folder named "switching_mode_4s" contains different switching mode tests and various LSTM input sequences. The following provides the purpose of each file.
     1. model_ODE : neural network architecture and parameter tuning for beam scanning.
     2. model_ODE_few : neural network architecture and parameter tuning for beam tracking.
