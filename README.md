@@ -2,7 +2,7 @@
 2. The folder includes the source codes of Continuous-Time mmWave Beam Prediction With ODE-LSTM Learning Architecture.
 3. The folder is free for academic use, including dataset utilization, simulation result reproduction, model improvement, etc.
 4. For academic use, the related work may be published in:
-Kuang-Hao (Stanley) Liu, Huang-Chou Lin, ``Low Overhead Beam Alignment for Mobile Millimeter Channel Based on Continuous-Time Prediction'', minor revision, IEEE WCL.
+Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile Millimeter Channel Based on Continuous-Time Prediction", IEEE WCNC 2024.
 5. The following are the steps for generating training data by using the folder "data":
    1. Download DeepMIMO functions and the data files of Raytracing scenarios O1 in 28 GHz operating frequency from the DeepMIMO website : https://www.deepmimo.net/
    2. parameters : set the DeepMIMO simulation parmeters.
@@ -16,7 +16,15 @@ Kuang-Hao (Stanley) Liu, Huang-Chou Lin, ``Low Overhead Beam Alignment for Mobil
    2. train_dataloader_3D : load training data and batch output
    3. eval_dataloader_3D : load validation data and batch output 
    4. test_dataloader_3D : load testing data and batch output
-   5. train_ODE_few : the main program for traing the predction model.
-   6. test_ODE_few : the program for testing the predction model.
-9.  The folder named "switching_mode_4s" contains 
-10.  The 'benchmark' folder contains ARIMA, EKF, LSTM, and ODE-LSTM models. With the exception of ODE-LSTM using signals through 64 beams, each training model is simulated with both a signal through 11beams and 64 beams.
+   5. train_ODE_few : the main program for training the prediction model.
+   6. test_ODE_few : the program for testing the prediction model.
+9.  The folder named "switching_mode_4s" contains different switching mode tests and various LSTM input sequences. The following provides the purpose of each file.
+    1. model_ODE : neural network architecture and parameter tuning for beam scanning.
+    2. model_ODE_few : neural network architecture and parameter tuning for beam tracking.
+    3. test_dataloader_3D : load testing data and batch output
+    4. test__ODE_final_11beam : the program for testing the beam tracking mode.
+    5. test__ODE_final_64beam : the program for testing the beam scanning mode.
+    6. test__ODE_final_64beam_dif_seq : the program for testing the beam scanning mode using different sequence in LSTM.
+    7. test__ODE_final_adaptive switching : the program for testing the adaptive switching mode between beam scanning and beam tracking. 
+    8. test__ODE_final_periodic switching : the program for testing the periodic switching mode between beam scanning and beam tracking.
+11.  The 'benchmark' folder contains ARIMA, EKF, LSTM, and ODE-LSTM models. With the exception of ODE-LSTM using noly beam scanning, each model is simulated with both beam tracking mode and beam tracking mdoe.
