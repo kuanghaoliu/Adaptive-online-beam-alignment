@@ -11,7 +11,7 @@ Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile
    5. generator_ODE_beam_tracking_R1 : generate User trajectory with \tau = {0.01, 0.02, ..., 0.99} in each preciction periodic, predction duration is 1-secind.
    6. generator_ODE_beam_tracking_v2 : generate User trajectory with random \tau in each preciction periodic, predction duration is 1-secind.
    7. generator_ODE_beam_tracking_final : generate User trajectory with \tau = {0.01, 0.02, ..., 0.99}, predction duration is 4-secinds.
-7. The 'beam_tracking_1s' folder contains three folders with different numbers of CNN layers, and each folder is compatible with strategies 1 through 3. The following provides the purpose of each file.
+7. The "beam_tracking_1s" folder contains three folders with different numbers of CNN layers, and each folder is compatible with strategies 1 through 3. The following provides the purpose of each file.
    1. model_ODE_few : neural network architecture and parameter tuning.
    2. train_dataloader_3D : load training data and batch output
    3. eval_dataloader_3D : load validation data and batch output 
