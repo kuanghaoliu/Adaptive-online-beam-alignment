@@ -27,4 +27,4 @@ Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile
     6. test__ODE_final_64beam_dif_seq : the program for testing the beam scanning mode using different sequence in LSTM.
     7. test__ODE_final_adaptive switching : the program for testing the adaptive switching mode between beam scanning and beam tracking. 
     8. test__ODE_final_periodic switching : the program for testing the periodic switching mode between beam scanning and beam tracking.
-11.  The 'benchmark' folder contains ARIMA, EKF, LSTM, and ODE-LSTM models. With the exception of ODE-LSTM using noly beam scanning, each model is simulated with both beam tracking mode and beam tracking mdoe.
+11.  The 'benchmark' folder contains ARIMA, EKF, LSTM, and ODE-LSTM models. With the exception of ODE-LSTM using noly beam scanning mode, each model is simulated with both beam tracking mode and beam tracking mdoe.
