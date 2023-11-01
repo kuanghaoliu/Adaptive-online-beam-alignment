@@ -2,36 +2,39 @@ This repository contains the source codes for reproducing the results in the fol
 Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile Millimeter Channel Based on Continuous-Time Prediction"
 
 # Generate training data
-Here are the steps for generating training data by using the folder "data":
-   1. Download DeepMIMO functions and the data files of Raytracing scenarios O1 in 28 GHz operating frequency from the DeepMIMO website : https://www.deepmimo.net/
-   2. parameters : set the DeepMIMO simulation parmeters.
-   3. DeepMIMO_Dataset_Generator :  generate the millimeter wavew channel.
-   4. generator_ODE_beam_tracking : generate User trajectory with prediction instants \tau = {0.1, 0.2, ..., 0.9} in each preciction periodic, predction duration is 1-secind predction duration .
-   5. generator_ODE_beam_tracking_R1 : generate User trajectory with \tau = {0.01, 0.02, ..., 0.99} in each preciction periodic, predction duration is 1-secind.
-   6. generator_ODE_beam_tracking_v2 : generate User trajectory with random \tau in each preciction periodic, predction duration is 1-secind.
-   7. generator_ODE_beam_tracking_final : generate User trajectory with \tau = {0.01, 0.02, ..., 0.99}, predction duration is 4-secinds.
-   8. 
-1. The folder includes the source codes of continuous-time beam tracking based on neural ordinary differential equation (ODE).
-2. The folder includes the source codes of Continuous-Time mmWave Beam Prediction With ODE-LSTM Learning Architecture.
-3. The folder is free for academic use, including dataset utilization, simulation result reproduction, model improvement, etc.
-4. For academic use, the related work may be published in:
+Here are the steps for generating training data. The required files can be found in the folder "data".
+   1. Download DeepMIMO and the data files of Raytracing scenario O1 in 28 GHz operating frequency from the DeepMIMO website : https://www.deepmimo.net/
+   2. Set the simulation in *parameters.m*.
+   3. Generate the millimeter wave channel using *DeepMIMO_Dataset_Generator.m*.
+   4. Generate User trajectory at the normalized prediction instant $\tau$ with four settings.
+      -*generator_ODE_beam_tracking_v2.m*: $\tau$ is randomly distributed within each prediction period. This is used to train the model.
+      -*generator_ODE_beam_tracking.m*: $\tau = 0.1, 0.2, \cdots, 0.9$. This is to plot the simulation result.
+      -*generator_ODE_beam_tracking_R1.m*: $\tau = 0.01, 0.02, ..., 0.99$. This is used to plot the simulation result.
+      -*generator_ODE_beam_tracking_final.m*: $\tau = 0.01, 0.02, ..., 0.99$ for each trajectory lasting for 4 seconds. A longer duration is used to examine the prediction performance when mode switching is enabled (see ### Mode switching enabled ###).
 
-5. You can find more information about me on my laboratory website : https://irat.ee.nthu.edu.tw/#Professor
-6. 
-7. The "beam_tracking_1s" folder contains three folders with different numbers of CNN layers, and each folder is compatible with strategies 1 through 3. The following provides the purpose of each file.
-   1. model_ODE_few : neural network architecture and parameter tuning.
-   2. train_dataloader_3D : load training data and batch output
-   3. eval_dataloader_3D : load validation data and batch output 
-   4. test_dataloader_3D : load testing data and batch output
-   5. train_ODE_few : the main program for training the prediction model.
-   6. test_ODE_few : the program for testing the prediction model.
-9.  The folder named "switching_mode_4s" contains different switching mode tests and various LSTM input sequences. The following provides the purpose of each file.
-    1. model_ODE : neural network architecture and parameter tuning for beam scanning.
-    2. model_ODE_few : neural network architecture and parameter tuning for beam tracking.
-    3. test_dataloader_3D : load testing data and batch output
-    4. test__ODE_final_11beam : the program for testing the beam tracking mode.
-    5. test__ODE_final_64beam : the program for testing the beam scanning mode.
-    6. test__ODE_final_64beam_dif_seq : the program for testing the beam scanning mode using different sequence in LSTM.
-    7. test__ODE_final_adaptive switching : the program for testing the adaptive switching mode between beam scanning and beam tracking. 
-    8. test__ODE_final_periodic switching : the program for testing the periodic switching mode between beam scanning and beam tracking.
-11.  The 'benchmark' folder contains ARIMA, EKF, LSTM, and ODE-LSTM models. With the exception of ODE-LSTM using noly beam scanning mode, each model is simulated with both beam tracking mode and beam tracking mdoe.
+# Mode switching disabled - model training and testing (see folder *mode switching disabled*)
+This is the case where beam training is performed every $$T$$ seconds, where $T=100$ ms by default. Each trajectory lasts for 1 second.
+- train_ODE_few.py: the main program for training the model.
+- test_ODE_few.py: the program for testing the model.
+
+Supporting files
+- model_ODE_few.py: neural network architecture and parameter tuning.
+- train_dataloader_3D.py: load training data and batch output
+- eval_dataloader_3D.py: load validation data and batch output 
+- test_dataloader_3D.py: load testing data and batch output
+  
+# Mode switching enabled - model training and testing (see folder *switching mode_4s*)
+This is the case where mode switching is enabled every $$T$$ seconds, where $$T=100$$ ms by default. Each trajectory lasts for 4 seconds. Except the longer moving trajectory, the model is the same as the one used in the folder *Mode switching disabled*. 
+- test__ODE_final_adaptive switching.py: the program for testing the **adaptive** switching mode between beam scanning and beam tracking. 
+- test__ODE_final_periodic switching.py: the program for testing the **periodic** switching mode between beam scanning and beam tracking.
+
+  Supporting files
+- test__ODE_final_11beam.py: use this file if you want to test the performance of beam tracking mode using 11 probing beams.
+- test__ODE_final_64beam.py: use this file if you want to test the performance of beam scanning mode using 64 probing beams.
+- test__ODE_final_64beam_dif_seq.py: use this file if want to test the performance of beam scanning mode using different sequence in LSTM.
+- model_ODE.py: neural network architecture and parameter tuning for beam scanning.
+- model_ODE_few.py: neural network architecture and parameter tuning for beam tracking.
+- test_dataloader_3D.py: load testing data and batch output
+
+# Benchmark schemes
+The folder **benchmark** contains the files for implementing ARIMA, EKF, LSTM, and ODE-LSTM. For a fair comparison, mode switching is enabled for ARIMA, EKF, and LSTM. ODE-LSTM proposed in reference [9] considers beam scanning only. 
