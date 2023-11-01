@@ -1,10 +1,8 @@
-1. The folder includes the source codes of continuous-time beam tracking based on neural ordinary differential equation (ODE).
-2. The folder includes the source codes of Continuous-Time mmWave Beam Prediction With ODE-LSTM Learning Architecture.
-3. The folder is free for academic use, including dataset utilization, simulation result reproduction, model improvement, etc.
-4. For academic use, the related work may be published in:
-Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile Millimeter Channel Based on Continuous-Time Prediction", IEEE WCNC 2024.
-5. You can find more information about me on my laboratory website : https://irat.ee.nthu.edu.tw/#Professor
-6. The following are the steps for generating training data by using the folder "data":
+This repository contains the source codes for reproducing the results in the following paper
+Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile Millimeter Channel Based on Continuous-Time Prediction"
+
+# Generate training data
+Here are the steps for generating training data by using the folder "data":
    1. Download DeepMIMO functions and the data files of Raytracing scenarios O1 in 28 GHz operating frequency from the DeepMIMO website : https://www.deepmimo.net/
    2. parameters : set the DeepMIMO simulation parmeters.
    3. DeepMIMO_Dataset_Generator :  generate the millimeter wavew channel.
@@ -12,6 +10,14 @@ Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile
    5. generator_ODE_beam_tracking_R1 : generate User trajectory with \tau = {0.01, 0.02, ..., 0.99} in each preciction periodic, predction duration is 1-secind.
    6. generator_ODE_beam_tracking_v2 : generate User trajectory with random \tau in each preciction periodic, predction duration is 1-secind.
    7. generator_ODE_beam_tracking_final : generate User trajectory with \tau = {0.01, 0.02, ..., 0.99}, predction duration is 4-secinds.
+   8. 
+1. The folder includes the source codes of continuous-time beam tracking based on neural ordinary differential equation (ODE).
+2. The folder includes the source codes of Continuous-Time mmWave Beam Prediction With ODE-LSTM Learning Architecture.
+3. The folder is free for academic use, including dataset utilization, simulation result reproduction, model improvement, etc.
+4. For academic use, the related work may be published in:
+
+5. You can find more information about me on my laboratory website : https://irat.ee.nthu.edu.tw/#Professor
+6. 
 7. The "beam_tracking_1s" folder contains three folders with different numbers of CNN layers, and each folder is compatible with strategies 1 through 3. The following provides the purpose of each file.
    1. model_ODE_few : neural network architecture and parameter tuning.
    2. train_dataloader_3D : load training data and batch output
