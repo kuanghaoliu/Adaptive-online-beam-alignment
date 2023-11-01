@@ -10,7 +10,7 @@ Here are the steps for generating training data. The required files can be found
       - *generator_ODE_beam_tracking_v2.m*: $\tau$ is randomly distributed within each prediction period. This is used to train the model.
       - *generator_ODE_beam_tracking.m*: $\tau = 0.1, 0.2, \cdots, 0.9$. This is to plot the simulation result.
       - *generator_ODE_beam_tracking_R1.m*: $\tau = 0.01, 0.02, ..., 0.99$. This is used to plot the simulation result.
-      - *generator_ODE_beam_tracking_final.m*: $\tau = 0.01, 0.02, ..., 0.99$ for each trajectory lasting for 4 seconds. A longer duration is used to examine the prediction performance when mode switching is enabled (see ### Mode switching enabled ###).
+      - *generator_ODE_beam_tracking_final.m*: $\tau = 0.01, 0.02, ..., 0.99$ for each trajectory lasting for 4 seconds. A longer duration is used to examine the prediction performance when mode switching is enabled (see [Mode switching enabled](#Mode switching enabled)).
 
 # Mode switching disabled - model training and testing (see folder *mode switching disabled*)
 This is the case where beam training is performed every $$T$$ seconds, where $T=100$ ms by default. Each trajectory lasts for 1 second.
