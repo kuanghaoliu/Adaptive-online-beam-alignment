@@ -24,7 +24,7 @@ Supporting files
 - test_dataloader_3D.py: load testing data and batch output
   
 # Mode switching enabled - model training and testing (see folder *switching mode_4s*)
-This is the case where mode switching is enabled every $$T$$ seconds, where $$T=100$$ ms by default. Each trajectory lasts for 4 seconds. Except the longer moving trajectory, the model is the same as the one used in the folder *Mode switching disabled*. 
+This is the case where mode switching is enabled every $T$ seconds, where $T=100$ ms by default. Each trajectory lasts for 4 seconds. Except the longer moving trajectory, the model is the same as the one used in the folder *Mode switching disabled*. 
 - test__ODE_final_adaptive switching.py: the program for testing the **adaptive** switching mode between beam scanning and beam tracking. 
 - test__ODE_final_periodic switching.py: the program for testing the **periodic** switching mode between beam scanning and beam tracking.
 
