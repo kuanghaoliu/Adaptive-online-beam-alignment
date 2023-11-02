@@ -58,14 +58,17 @@ The folder **benchmark** contains the files for implementing ARIMA, EKF, LSTM, a
 | Number of paths             | 5            |
 
 ## Mobility model
-We sample different UE locations from the DeeMIMO dataset to generate the UE movement trajectory. The considered area is a rectangular region that spans a length from rows 100 to 900 and a width covering columns from 1 to 181, as shown in the figure. There are 18 BSs and 3 user grids located in the area but only BS 1 is activated. The UE location at time $t$ is determined by using the formula $x(t) = x_0 + vt + \frac{1}{2}a_tt^2$, which is a displacement-time relationship derived from Newton’s second law of motion. The initial location $x_0$ is randomly chosen in the user grid, $v$ is the movement speed, and $a_y$ is the acceleration that varies with time. 
+We sample different UE locations from the DeeMIMO dataset to generate the UE movement trajectory. The considered area is a rectangular region that spans a length from rows 100 to 900 and a width covering columns from 1 to 181, as shown in the figure below. There are 18 BSs and 3 user grids located in the area but only BS 1 is activated. The UE location at time $t$ is determined by using the formula $x(t) = x_0 + vt + \frac{1}{2}a_tt^2$, which is a displacement-time relationship derived from Newton’s second law of motion. The initial location $x_0$ is randomly chosen in the user grid, $v$ is the movement speed, and $a_t$ is the acceleration that varies with time. 
 
-| Parameter                     | Value                      |
+| Parameter                     | Value                      |  
 |-------------------------------|----------------------------|
 | BS index                      | 1                          |
 | Location range of user        | Row 100~900                |
 | Acceleration                  | $0.2v~\text{m}/\text{s}^2$ |
 | Moving direction              | Uniform($0,2\pi$)          |
+<p align="center">
+  <img src="./O1_topV2.jpg" width="350" title="hover text">
+</p>
 
 # Neural network structure
 There are four neural network components in the proposed AOBA. 
@@ -73,7 +76,7 @@ There are four neural network components in the proposed AOBA.
 - LSTM with one hidden layer using Adam as the optimizer is Adam. The loss function is cross entropy.
 - ODESolver with the Euler method as an integrator.
 - The FC layer with a dropout of 0.3.
-The detail layer parameters and hyperparameters are shown below.
+The details of hyperparameters are shown below.
 
 | Parameter                     | Value             |
 |-------------------------------|-------------------|
