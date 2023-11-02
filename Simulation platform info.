@@ -1,4 +1,5 @@
-1. Deep learning model 
-Python version: Python 3.11
-Pytorch version: 1.10.1
-2. Data generation : MATLAB R2023a
+Data generation: MATLAB R2023a
+
+Deep learning model
+- Python 3.11
+- Pytorch 1.10.1
