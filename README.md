@@ -1,5 +1,8 @@
 This repo contains the source codes for reproducing the results in the following paper
-Kuang-Hao (Stanley) Liu, Huang-Chou Lin, "Low Overhead Beam Alignment for Mobile Millimeter Channel Based on Continuous-Time Prediction"
+
+Huang-Chou Lin and Kuang-Hao (Stanley) Liu, "Low Overhead beam alignment for mobile millimeter channel based on continuous-time prediction" http://arxiv.org/abs/2311.01752
+
+Please direct any questions to irat@ee.nthu.edu.tw. We will be happy to discuss and provide more details.
 
 # Generate training data
 Here are the steps for generating training data. The required files can be found in the folder "data".
@@ -58,7 +61,7 @@ The folder **benchmark** contains the files for implementing ARIMA, EKF, LSTM, a
 | Number of paths             | 5            |
 
 ## Mobility model
-We sample different UE locations from the DeeMIMO dataset to generate the UE movement trajectory. The considered area is a rectangular region that spans a length from rows 100 to 900 and a width covering columns from 1 to 181, as shown in the figure below. There are 18 BSs and 3 user grids located in the area but only BS 1 is activated. The UE location at time $t$ is determined by using the formula $x(t) = x_0 + vt + \frac{1}{2}a_tt^2$, which is a displacement-time relationship derived from Newton’s second law of motion. The initial location $x_0$ is randomly chosen in the user grid, $v$ is the movement speed, and $a_t$ is the acceleration that varies with time. 
+We sample different UE locations from the DeeMIMO dataset (https://www.deepmimo.net/) to generate the UE movement trajectory. The considered area is a rectangular region that spans a length from rows 100 to 900 and a width covering columns from 1 to 181, as shown in the figure below (adopted from DeepMIMO website). There are 18 BSs and 3 user grids located in the area but only BS 1 is activated. The UE location at time $t$ is determined by using the formula $x(t) = x_0 + vt + \frac{1}{2}a_tt^2$, which is a displacement-time relationship derived from Newton’s second law of motion. The initial location $x_0$ is randomly chosen in the user grid, $v$ is the movement speed, and $a_t$ is the acceleration that varies with time. 
 
 | Parameter                     | Value                      |  
 |-------------------------------|----------------------------|
